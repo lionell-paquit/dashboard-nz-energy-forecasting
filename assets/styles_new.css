@@ -1,0 +1,457 @@
+/*
+ Dashboard CSS from Keen IO Dashboards
+ (https://github.com/keen/dashboards)
+*/
+
+body {
+  background: #f2f2f2;
+  padding: 60px 0 0 8px; /* padding-top overridden by theme */
+}
+
+body hr {
+  border-color: #d7d7d7;
+  margin: 10px 0;
+}
+
+.navbar-inverse .navbar-nav > li > a,
+.navbar .navbar-brand {
+  text-decoration: none;
+}
+
+.navbar .dropdown-menu .fa {
+  min-width: 20px;
+}
+
+.chart-wrapper {
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+.chart-wrapper .chart-title {
+  border-bottom: 1px solid #d7d7d7;
+  color: #666;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 7px 10px 4px;
+}
+
+.chart-wrapper .chart-title:empty {
+  display: none;
+}
+
+.chart-wrapper .chart-stage {
+  overflow: hidden;
+  padding: 5px 10px;
+  position: relative;
+}
+
+.chart-wrapper .chart-notes {
+  background: #fbfbfb;
+  border-top: 1px solid #e2e2e2;
+  color: #808080;
+  font-size: 12px;
+  padding: 8px 10px 5px;
+}
+
+/*
+ CSS for handling flexbox layout
+*/
+
+#dashboard-container {
+  visibility: hidden;
+}
+
+.tab-content>.dashboard-page-wrapper.active {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashboard-page-wrapper {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-row-orientation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dashboard-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.dashboard-row-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.dashboard-column-orientation {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.dashboard-column {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chart-wrapper-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.chart-stage-flex {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+}
+
+.chart-shim {
+  position: absolute;
+  left: 8px; top: 8px; right: 8px; bottom: 8px;
+}
+
+.nopadding .chart-shim {
+  left: 0; top: 0; right: 0; bottom: 0;
+}
+
+.bootstrap-table-shim {
+  overflow: auto;
+  left: 0; top: 0; right: 0; bottom: 0;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.chart-shim .table-bordered {
+  border: none;
+}
+
+.chart-shim .table-bordered > tbody > tr > th,
+.chart-shim .table-bordered > tfoot > tr > th,
+.chart-shim .table-bordered > tbody > tr > td,
+.chart-shim .table-bordered > tfoot > tr > td {
+  border: none;
+}
+
+.chart-shim .table-bordered > tbody > tr > td {
+  border-top: 1px solid #dddddd;
+}
+
+.chart-shim .table-bordered > thead > tr > th {
+  border: none;
+  border-bottom: 2px solid #dddddd;
+}
+
+.bootstrap-table-shim table>thead {
+  background-color: #fff;
+}
+
+.bootstrap-table-shim table.data,
+.bootstrap-table-shim table.shiny-table {
+  width: inherit !important;
+}
+
+.bootstrap-table-shim table.data>tbody>tr>th,
+.bootstrap-table-shim table.shiny-table>tbody>tr>th {
+  border-top: none;
+  border-bottom: 2px solid #dddddd;
+  padding: 5px;
+}
+
+.bootstrap-table-shim .data td[align=right] {
+  font-family: inherit;
+}
+
+.chart-wrapper form {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.shiny-input-container label {
+  font-weight: normal;
+}
+
+.chart-stage .html-widget {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-stage .html-widget-static-bound {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.chart-stage .shiny-bound-output {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Omit display of empty paragraphs */
+
+.chart-shim>p:empty {
+  display: none;
+}
+
+.chart-stage>p:empty {
+  display: none;
+}
+
+/* Omit display of special knitr options div*/
+
+.chart-stage .knitr-options {
+  display: none;
+}
+
+/* Automatically resizing images */
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+}
+
+.image-container img {
+  opacity: 0;
+}
+
+/* Value box */
+
+.value-box {
+  border-radius: 2px;
+  position: relative;
+  display: block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.value-box > .inner {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.value-box .value {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 0 0 3px 0;
+  white-space: nowrap;
+  padding: 0;
+}
+
+.value-box .caption {
+  font-size: 15px;
+}
+.value-box .caption > small {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.value-box .icon i {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 80px;
+  color: rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 767px) {
+  .value-box {
+    text-align: center;
+    margin-right: 8px;
+  }
+  .value-box .icon {
+    display: none;
+  }
+}
+
+/* Fixed position sidebar */
+
+.section.sidebar {
+  position: fixed;
+  top: 51px; /* overridden by theme */
+  left: 0;
+  bottom: 0;
+  width: 250px; /* user-overrideable via data-width */
+  border-right: 1px solid #e2e2e2;
+  background-color: white; /* overridden by theme */
+  padding-left: 10px;
+  padding-right: 10px;
+  visibility: hidden;
+}
+
+.section.sidebar form p:first-child {
+  margin-top: 10px;
+}
+
+/* Embedded source code */
+
+#flexdashboard-source-code {
+  display: none;
+}
+
+.featherlight-content #flexdashboard-source-code {
+  display: inline-block;
+}
+
+.featherlight-content {
+  width: 80%;
+  max-width: 800px;
+  padding: 0 !important;
+  border-bottom: none !important;
+}
+
+.featherlight-inner {
+  width: 100%;
+}
+
+.featherlight-content pre {
+  margin: 0;
+  border: 0;
+  background: #fff;
+  font-size: 12px;
+}
+
+.unselectable {
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: -moz-none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#flexdashboard-source-code code {
+  -ms-user-select: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -o-user-select: text;
+  user-select: text;
+}
+
+/* DataTables Tweaks */
+
+.dataTables_filter input[type="search"] {
+  -webkit-appearance: searchfield;
+  outline: none;
+}
+
+.dataTables_wrapper.no-footer
+.dataTables_info {
+  padding-top: 0;
+}
+
+
+table.dataTable thead th {
+  border-bottom: 1px solid #d7d7d7;
+}
+
+.dataTables_wrapper.no-footer .dataTables_scrollBody {
+  border-bottom: 1px solid #d7d7d7;
+}
+body {
+  padding-top: 60px;
+}
+
+.section.sidebar {
+  top: 51px;
+  background-color: rgba(39, 128, 227, 0.1);
+}
+
+.value-box {
+  color: #f9f9f9;
+}
+
+.bg-primary {
+  background-color: rgba(39, 128, 227, 0.7);
+}
+
+.bg-info {
+  background-color: rgba(153, 84, 187, 0.7);
+}
+
+.bg-warning {
+  background-color: rgba(255, 117, 24, 0.7);
+}
+
+.bg-danger {
+  background-color: rgba(255, 0, 57, 0.7);
+}
+
+.bg-success {
+  background-color: rgba(63, 182, 24, 0.7);
+}
+
+@media only screen and (min-width: 768px) {
+html, body {
+  height: 100%;
+}
+
+#dashboard-container {
+  height: 100%;
+}
+}
