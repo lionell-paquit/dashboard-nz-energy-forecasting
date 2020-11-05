@@ -1,4 +1,32 @@
 library(shiny)
+library(flexdashboard) # devtools::install_github('rstudio/flexdashboard')
+
+# ----------- NZ Energy Forecasting --------------#
+
+library(data.table)
+library(prophet)
+library(plotly) # devtools::install_github('ropensci/plotly')
+library(ggplot2) # devtools::install_github('hadley/ggplot2')
+
+
+
+# pricing_features <- fread("../data/pricing_features.csv")
+# pricing_actuals <- fread("../data/pricing_actuals_features.csv")
+# pricing_futures <- fread("../data/pricing_future_features.csv")
+# 
+# m <- prophet()
+# 
+# for (f in colnames(pricing_features)[3:12]) {
+#     m <- add_regressor(m, f)
+# }
+# 
+# m <- fit.prophet(m, pricing_features)
+# 
+# forecast <- predict(m, future)
+# 
+# g <- plot(m, forecast)
+
+
 library(shinySignals)
 library(dplyr)
 library(bubbles)
@@ -148,11 +176,8 @@ rawToInt <- function(bytes) {
 
 library(leaflet) # devtools::install_github('rstudio/leaflet')
 library(highcharter) # devtools::install_github('jbkunst/highcharter')
-library(plotly) # devtools::install_github('ropensci/plotly')
-library(ggplot2) # devtools::install_github('hadley/ggplot2')
 library(sp)
 library(dplyr)
-library(flexdashboard) # devtools::install_github('rstudio/flexdashboard')
 library(rgeos)
 library(mapproj)
 library(maptools)
@@ -179,7 +204,7 @@ lookup <- structure(c(12060L, 12420L, 12580L, 13820L, 14460L, 15380L, 16740L,
                                           "Washington"))
 
 # Read in data, and subset for the selected metro
-full_tracts <- readRDS('data/full_simp2.rds')
+full_tracts <- readRDS('../data/full_simp2.rds')
 metro <- reactive({
     
     m <- full_tracts[full_tracts$metroid == input$metro_name, ]
@@ -191,7 +216,7 @@ metro <- reactive({
     
 })
 # Generate data for the second tab
-full_compare <- readRDS('data/comparative.rds')
+full_compare <- readRDS('../data/comparative.rds')
 compare_metro <- reactive({
     
     out <- full_compare %>%

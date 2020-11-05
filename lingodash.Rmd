@@ -1,0 +1,102 @@
+---
+title: "lingo.ai"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    social: menu
+    vertical_layout: fill
+    theme: cosmo
+    css: "assets/styles-new.css"
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+
+
+# Access to CRAN packages data stream
+source("app.R")
+
+```
+
+
+Sidebar {.sidebar}
+=======================================================================
+
+### New Zealand Electricity Price Prediction
+
+```{r}
+
+```
+
+
+
+
+Dashboard
+=======================================================================
+
+
+Row
+-----------------------------------------------------------------------
+
+### Long-term Growth {.value-box .bg-warning}
+
+```{r}
+library(scales)
+
+diff_price <- scales::dollar(410)
+
+renderValueBox({
+  rate <- formatC(diff_price, digits = 1, format = "f")
+  valueBox(
+    value = rate,
+    icon = "fa-dollar-sign",
+    color = if (rate >= 200) "warning" else "primary"
+  )
+})
+```
+
+### KPI Card 2 {.value-box .bg-primary}
+
+```{r}
+
+```
+
+### KPI Card 3 {.value-box .bg-primary}
+
+```{r}
+
+```
+
+
+Row
+-----------------------------------------------------------------------
+
+### MAIN CHART
+
+```{r}
+
+output$scatter <- renderPlotly({
+  
+  build <- plotly_build(g)
+  build
+})
+plotlyOutput('scatter', width = "80%")
+```
+
+
+Row
+-----------------------------------------------------------------------
+
+### SECOND CHART
+
+```{r}
+
+
+```
+
+### SUMMARY CHART
+
+```{r}
+
+
+```
